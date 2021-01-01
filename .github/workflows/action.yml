@@ -3,7 +3,6 @@
 
 name: action
 
-name: integration-tests
 on: [push]
 jobs:
   cypress-run:
