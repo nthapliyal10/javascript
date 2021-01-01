@@ -6,16 +6,13 @@ name: action
 on: [push]
 jobs:
   basic-on-windows:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    container: node12.18.3-chrome87-ff82
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Cypress tests
-        uses: ./
+      - uses: actions/checkout@v1
+      - uses: cypress-io/github-action@v2
         with:
-          working-directory: ./
-          build: npx cypress run
-        env:
-          # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          browser: chrome
+ 
+      - name: Cypress tests
+        run: npm run cy:run
