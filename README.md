@@ -1,2 +1,2 @@
 # javascript
-sample file
+sample files
