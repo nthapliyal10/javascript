@@ -15,4 +15,4 @@ jobs:
         uses: ./
         with:
           working-directory: ./
-          build: npx cypress info
+          build: npx cypress run
