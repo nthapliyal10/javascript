@@ -5,18 +5,14 @@ name: action
 
 on: [push]
 jobs:
-  cypress-run:
-    runs-on: ubuntu-16.04
+  basic-on-windows:
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      # https://github.com/cypress-io/github-action
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
+
+      - name: Cypress tests
+        uses: ./
         with:
-          record: true
-          start: npm run serve
-          working-directory: frontend
-        env:
-          # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: 89c1a6ea-f9c5-45fc-b0f0-85dc0d0a94a7
+          working-directory: ./
+          build: npx cypress info
