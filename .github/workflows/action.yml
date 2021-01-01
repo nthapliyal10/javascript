@@ -10,8 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
  
       - name: Cypress tests
-        run: npm run cy:run
+        run: npm run cy:run --record --key 89c1a6ea-f9c5-45fc-b0f0-85dc0d0a94a7
